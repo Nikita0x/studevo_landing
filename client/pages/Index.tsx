@@ -139,10 +139,8 @@ export default function Index() {
               Join thousands of learners who are mastering AI tools and advancing their skills with Studevo.
             </p>
             <div className="flex flex-col items-baseline justify-center sm:flex-row gap-4">
-            <Button size="lg" variant="outline" className="mt-8 border-2 border-primary text-primary hover:bg-primary/5 text-lg px-8 py-6 rounded-xl shadow-lg shadow-primary/10">
-              <ExternalLink className="w-5 h-5 mr-2" /> Explore on Web
-            </Button>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25 text-lg px-8 py-6 rounded-xl">
+            
+            <Button size="lg" className="bg-primary hover:bg-primary/90 mt-8 text-primary-foreground shadow-lg shadow-primary/25 text-lg px-8 py-6 rounded-xl">
                   <ArrowRight className="w-5 h-5 mr-2" /> Get started
             </Button>
             </div>
