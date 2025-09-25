@@ -13,7 +13,7 @@ export default function Layout({ children }: PropsWithChildren) {
             <nav className="hidden md:flex items-center space-x-8">
               <a href="/#features" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Features</a>
               <a href="/#tutorials" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Tutorials</a>
-              <Link to="/about" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">About</Link>
+              <a href="/#features" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">About</a>
             </nav>
           </div>
         </div>
@@ -41,18 +41,18 @@ export default function Layout({ children }: PropsWithChildren) {
             <div className="space-y-4">
               <h3 className="font-medium">Product</h3>
               <ul className="space-y-2 text-sm text-foreground/70">
-                <a href="/#features" className="hover:text-foreground">Features</a>
-                <a href="/#tutorials" className="hover:text-foreground">Tutorials</a>
-                <li><Link to="/" className="hover:text-foreground">Resources</Link></li>
+                <li><a href="/#features" className="hover:text-foreground">Features</a></li>
+                <li><a href="/#tutorials" className="hover:text-foreground">Tutorials</a></li>
+                <li><a href="/" className="hover:text-foreground">Resources</a></li>
               </ul>
             </div>
 
             <div className="space-y-4">
               <h3 className="font-medium">Company</h3>
               <ul className="space-y-2 text-sm text-foreground/70">
-                <li><Link to="/about" className="hover:text-foreground">About</Link></li>
-                <li><Link to="/blog" className="hover:text-foreground">Blog</Link></li>
-                <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
+                <li><a href="/" className="hover:text-foreground">About</a></li>
+                <li><a href="/#tutorials" className="hover:text-foreground">Blog</a></li>
+                <li><a href="/#features" className="hover:text-foreground">Contact</a></li>
               </ul>
             </div>
 
@@ -66,7 +66,7 @@ export default function Layout({ children }: PropsWithChildren) {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-top border-gray-200">
+          <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-200">
             <div className="text-sm text-foreground/60">© 2025 Studevo. All rights reserved.</div>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/terms" className="text-sm text-foreground/60 hover:text-foreground">Terms</Link>
