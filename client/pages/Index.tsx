@@ -89,7 +89,7 @@ export default function Index() {
       </section>
 
       {/* Tutorials Section */}
-      <section id="tutorials" className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50/30">
+      <section id="tutorials" className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-50/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <Badge className="bg-primary/10 text-primary border-primary/20">Tutorials</Badge>
