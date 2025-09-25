@@ -1,62 +1,379 @@
-import { DemoResponse } from "@shared/api";
-import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Star, ArrowRight, ExternalLink, Brain, Lightbulb, BookOpen, Zap, CheckCircle, Users, Clock, Github, Twitter, Instagram, Linkedin } from "lucide-react";
 
 export default function Index() {
-  const [exampleFromServer, setExampleFromServer] = useState("");
-  // Fetch users on component mount
-  useEffect(() => {
-    fetchDemo();
-  }, []);
-
-  // Example of how to fetch data from the server (if needed)
-  const fetchDemo = async () => {
-    try {
-      const response = await fetch("/api/demo");
-      const data = (await response.json()) as DemoResponse;
-      setExampleFromServer(data.message);
-    } catch (error) {
-      console.error("Error fetching hello:", error);
-    }
-  };
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
+    <div className="min-h-screen bg-background font-['Inter']">
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/53 backdrop-blur-sm border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            <div className="text-xl font-semibold text-foreground">
+              Studevo
+            </div>
+            <nav className="hidden md:flex items-center space-x-8">
+              <a href="#features" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+                Features
+              </a>
+              <a href="#tutorials" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+                Tutorials
+              </a>
+              <a href="#about" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+                About
+              </a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="pt-40 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background to-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
+                AI-Powered Learning
+              </Badge>
+              <div className="space-y-4">
+                <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight">
+                  Master AI tools with{" "}
+                  <span className="text-primary">guided tutorials</span>
+                </h1>
+                <p className="text-xl text-foreground/80 max-w-lg leading-relaxed">
+                  Learn AI tools effectively with our step-by-step tutorials and interactive guides designed for all skill levels.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25 text-lg px-8 py-6 rounded-xl">
+                  <ArrowRight className="w-5 h-5 mr-2" />
+                  Get started
+                </Button>
+                <Button variant="outline" size="lg" className="border-2 border-primary text-primary hover:bg-primary/5 text-lg px-8 py-6 rounded-xl shadow-lg shadow-primary/10">
+                  <ArrowRight className="w-5 h-5 mr-2" />
+                  Browse Tutorials
+                </Button>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="bg-white/80 backdrop-blur-sm rounded-3xl border border-white/20 shadow-2xl shadow-primary/10 p-6">
+                <img 
+                  src="https://api.builder.io/api/v1/image/assets/TEMP/3cbd4f482bbba1262fd66f73cd83efb7a09472dc?width=1100" 
+                  alt="AI learning interface" 
+                  className="w-full h-80 object-cover rounded-2xl"
+                />
+                {/* Floating cards */}
+                <div className="absolute -top-4 -right-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg p-3">
+                  <img 
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/c0d61f1abcba39b79eea4c9ab0d534a1eddf3ed5?width=256" 
+                    alt="AI assistant" 
+                    className="w-32 h-32 object-cover rounded-xl"
+                  />
+                </div>
+                <div className="absolute -bottom-4 -left-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg p-3">
+                  <img 
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/c97cda0df3b4a23ef45eab05de82dd58f785c890?width=224" 
+                    alt="AI concept" 
+                    className="w-28 h-28 object-cover rounded-xl"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center space-y-4 mb-16">
+            <Badge className="bg-gray-100 text-gray-600 border-gray-200">
+              Features
+            </Badge>
+            <h2 className="text-4xl font-bold text-foreground">
+              Everything you need to master AI tools
+            </h2>
+            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+              Studevo combines powerful learning tools with intuitive design to make learning AI accessible to everyone.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Brain,
+                title: "AI-Powered Learning",
+                description: "Personalized learning paths that adapt to your style and pace, making complex AI concepts accessible."
+              },
+              {
+                icon: Lightbulb,
+                title: "Interactive Tutorials",
+                description: "Hands-on exercises and real-world projects to reinforce your understanding of AI tools."
+              },
+              {
+                icon: BookOpen,
+                title: "Comprehensive Guides",
+                description: "Step-by-step guides covering a wide range of AI tools and technologies for all skill levels."
+              },
+              {
+                icon: Zap,
+                title: "Quick Access",
+                description: "Instantly find and save the tutorials you need with our smart search and bookmark system."
+              },
+              {
+                icon: CheckCircle,
+                title: "Progress Tracking",
+                description: "Monitor your learning journey with detailed progress tracking and achievement milestones."
+              },
+              {
+                icon: Users,
+                title: "Community Learning",
+                description: "Connect with other learners, share insights, and collaborate on AI projects in our community."
+              }
+            ].map((feature, index) => (
+              <Card key={index} className="bg-white/80 backdrop-blur-sm border border-white/20 shadow-sm hover:shadow-md transition-shadow p-6">
+                <CardContent className="p-0 space-y-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <feature.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    {feature.title}
+                  </h3>
+                  <p className="text-foreground/70 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* App Interface Preview */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative rounded-2xl overflow-hidden">
+            <img 
+              src="https://api.builder.io/api/v1/image/assets/TEMP/dce5a0db1e8c42d64e92885e61c17b4f7bea4174?width=2432" 
+              alt="Studevo app interface" 
+              className="w-full h-96 object-cover"
             />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
-        <p className="mt-4 hidden max-w-md">{exampleFromServer}</p>
-      </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
+              <h3 className="text-3xl font-bold text-foreground mb-2">
+                Designed for real learning
+              </h3>
+              <p className="text-lg text-foreground/80">
+                Our tutorials focus on practical skills you can apply immediately
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tutorials Section */}
+      <section id="tutorials" className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center space-y-4 mb-16">
+            <Badge className="bg-primary/10 text-primary border-primary/20">
+              Tutorials
+            </Badge>
+            <h2 className="text-4xl font-bold text-foreground">
+              Learn from expert-crafted tutorials
+            </h2>
+            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+              Dive into our comprehensive collection of tutorials covering the latest AI tools and technologies.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {[
+              {
+                image: "https://api.builder.io/api/v1/image/assets/TEMP/3cbd4f482bbba1262fd66f73cd83efb7a09472dc?width=764",
+                title: "Getting Started with ChatGPT",
+                description: "Learn how to effectively use ChatGPT for various tasks and improve your productivity.",
+                level: "Beginner",
+                duration: "1.5 hours",
+                rating: 4.8
+              },
+              {
+                image: "https://api.builder.io/api/v1/image/assets/TEMP/75bd41a6be43f8622080666afdc0ec0b34794401?width=764",
+                title: "Midjourney Art Creation",
+                description: "Master the art of creating stunning images with Midjourney's AI image generation.",
+                level: "Intermediate",
+                duration: "2 hours",
+                rating: 4.7
+              },
+              {
+                image: "https://api.builder.io/api/v1/image/assets/TEMP/b594d9362c42ecc8b0bdab95cd684f253878f81f?width=764",
+                title: "AI Workflow Automation",
+                description: "Combine multiple AI tools to create powerful workflows for your projects.",
+                level: "Advanced",
+                duration: "3 hours",
+                rating: 4.9
+              },
+              {
+                image: "https://api.builder.io/api/v1/image/assets/TEMP/4bae996697a66b318882418d1939df01737c04ee?width=764",
+                title: "Exploring Stable Diffusion",
+                description: "Learn to generate custom images with Stable Diffusion models and prompts.",
+                level: "Intermediate",
+                duration: "2.5 hours",
+                rating: 4.6
+              },
+              {
+                image: "https://api.builder.io/api/v1/image/assets/TEMP/ac3b2ebc4fe648dae68161f3df68ef54a4d0d79d?width=764",
+                title: "Claude AI for Business",
+                description: "Implement Claude AI to enhance customer service and business operations.",
+                level: "Business",
+                duration: "2 hours",
+                rating: 4.5
+              },
+              {
+                image: "https://api.builder.io/api/v1/image/assets/TEMP/e903f3aaf77157d0cc370fcdd5391040c9e3fd6e?width=764",
+                title: "AI Ethics & Best Practices",
+                description: "Understanding ethical considerations when working with AI tools and models.",
+                level: "Essential",
+                duration: "1 hour",
+                rating: 4.7
+              }
+            ].map((tutorial, index) => (
+              <Card key={index} className="bg-white/80 backdrop-blur-sm border border-white/20 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+                <div className="relative">
+                  <img 
+                    src={tutorial.image}
+                    alt={tutorial.title}
+                    className="w-full h-48 object-cover"
+                  />
+                  <Badge className="absolute top-3 left-3 bg-black/60 text-white border-0">
+                    {tutorial.level}
+                  </Badge>
+                  <div className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm rounded-full px-2 py-1 flex items-center text-xs">
+                    <Clock className="w-3 h-3 mr-1" />
+                    {tutorial.duration}
+                  </div>
+                </div>
+                <CardContent className="p-6 space-y-3">
+                  <div className="flex items-center space-x-1 mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                    <span className="text-sm text-foreground/60 ml-2">{tutorial.rating}</span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    {tutorial.title}
+                  </h3>
+                  <p className="text-sm text-foreground/70 leading-relaxed">
+                    {tutorial.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="text-center">
+            <Button variant="link" className="text-primary hover:text-primary/80 text-base">
+              View all tutorials <ArrowRight className="w-4 h-4 ml-1" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <Card className="bg-white/80 backdrop-blur-sm border border-white/20 shadow-sm p-12 text-center">
+            <CardContent className="p-0 space-y-8">
+              <h2 className="text-4xl font-bold text-foreground">
+                Start your AI learning journey today
+              </h2>
+              <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+                Join thousands of learners who are mastering AI tools and advancing their skills with Studevo.
+              </p>
+              <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary/5 text-lg px-8 py-6 rounded-xl shadow-lg shadow-primary/10">
+                <ExternalLink className="w-5 h-5 mr-2" />
+                Explore on Web
+              </Button>
+              
+              <div className="grid md:grid-cols-3 gap-8 pt-8 border-t border-white/10">
+                <div className="space-y-2">
+                  <div className="text-4xl font-bold text-primary">100+</div>
+                  <div className="text-foreground/70">AI tutorials</div>
+                </div>
+                <div className="space-y-2">
+                  <div className="text-4xl font-bold text-primary">15k+</div>
+                  <div className="text-foreground/70">Active users</div>
+                </div>
+                <div className="space-y-2">
+                  <div className="text-4xl font-bold text-primary">4.8</div>
+                  <div className="text-foreground/70">App Store rating</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-200 py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            <div className="space-y-4">
+              <div className="text-xl font-semibold text-foreground">Studevo</div>
+              <p className="text-sm text-foreground/70 leading-relaxed">
+                Learn AI tools and technologies with guided tutorials and comprehensive resources.
+              </p>
+              <div className="flex space-x-4">
+                <Twitter className="w-5 h-5 text-foreground/60 hover:text-foreground cursor-pointer" />
+                <Instagram className="w-5 h-5 text-foreground/60 hover:text-foreground cursor-pointer" />
+                <Linkedin className="w-5 h-5 text-foreground/60 hover:text-foreground cursor-pointer" />
+                <Github className="w-5 h-5 text-foreground/60 hover:text-foreground cursor-pointer" />
+              </div>
+            </div>
+            
+            <div className="space-y-4">
+              <h3 className="font-medium text-foreground">Product</h3>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li><a href="#" className="hover:text-foreground">Features</a></li>
+                <li><a href="#" className="hover:text-foreground">Pricing</a></li>
+                <li><a href="#" className="hover:text-foreground">Tutorials</a></li>
+                <li><a href="#" className="hover:text-foreground">Resources</a></li>
+              </ul>
+            </div>
+            
+            <div className="space-y-4">
+              <h3 className="font-medium text-foreground">Company</h3>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li><a href="#" className="hover:text-foreground">About</a></li>
+                <li><a href="#" className="hover:text-foreground">Blog</a></li>
+                <li><a href="#" className="hover:text-foreground">Careers</a></li>
+                <li><a href="#" className="hover:text-foreground">Contact</a></li>
+              </ul>
+            </div>
+            
+            <div className="space-y-4">
+              <h3 className="font-medium text-foreground">Legal</h3>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li><a href="#" className="hover:text-foreground">Terms</a></li>
+                <li><a href="#" className="hover:text-foreground">Privacy</a></li>
+                <li><a href="#" className="hover:text-foreground">Cookies</a></li>
+                <li><a href="#" className="hover:text-foreground">Licenses</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-200">
+            <div className="text-sm text-foreground/60">
+              © 2025 Studevo. All rights reserved.
+            </div>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <a href="#" className="text-sm text-foreground/60 hover:text-foreground">Terms</a>
+              <a href="#" className="text-sm text-foreground/60 hover:text-foreground">Privacy</a>
+              <a href="#" className="text-sm text-foreground/60 hover:text-foreground">Cookies</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
