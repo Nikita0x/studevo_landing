@@ -25,9 +25,6 @@ export default function Index() {
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25 text-lg px-8 py-6 rounded-xl">
                   <ArrowRight className="w-5 h-5 mr-2" /> Get started
                 </Button>
-                <Button variant="outline" size="lg" className="border-2 border-primary text-primary hover:bg-primary/5 text-lg px-8 py-6 rounded-xl shadow-lg shadow-primary/10">
-                  <ArrowRight className="w-5 h-5 mr-2" /> Browse Tutorials
-                </Button>
               </div>
             </div>
             <div className="relative">
