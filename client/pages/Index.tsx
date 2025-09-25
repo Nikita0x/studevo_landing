@@ -127,12 +127,6 @@ export default function Index() {
               </Card>
             ))}
           </div>
-
-          <div className="text-center">
-            <Button variant="link" className="text-primary hover:text-primary/80 text-base">
-              View all tutorials <ArrowRight className="w-4 h-4 ml-1" />
-            </Button>
-          </div>
         </div>
       </section>
 
